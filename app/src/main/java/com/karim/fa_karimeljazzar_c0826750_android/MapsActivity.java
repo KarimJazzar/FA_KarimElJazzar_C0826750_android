@@ -356,11 +356,11 @@ public class MapsActivity extends AppCompatActivity {
 
             for(PlaceModel placeModel: placeModels){
                 LatLng placeLocation = new LatLng(placeModel.getLatitude(), placeModel.getLongitude());
-                MarkerOptions markerOptionsProduct = new MarkerOptions();
-                markerOptionsProduct.position(placeLocation);
-                markerOptionsProduct.title(placeModel.getName());
-                markerOptionsProduct.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
-                googleMap.addMarker(markerOptionsProduct);
+                MarkerOptions markerOptionsPlace = new MarkerOptions();
+                markerOptionsPlace.position(placeLocation);
+                markerOptionsPlace.title(placeModel.getName());
+                markerOptionsPlace.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+                googleMap.addMarker(markerOptionsPlace);
                 googleMap.moveCamera(CameraUpdateFactory.newLatLng(placeLocation));
             }
 

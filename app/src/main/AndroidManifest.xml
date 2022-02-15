@@ -38,6 +38,10 @@
             android:value="@string/google_maps_key" />
 
         <activity
+            android:name=".DistanceMapsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_distance_maps" />
+        <activity
             android:name=".UpdateMapsActivity"
             android:exported="false"
             android:label="@string/title_activity_update_maps" />

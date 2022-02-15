@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public static PlaceModel selectedPlace;
     public static DatabaseHelper databaseHelper;
     TextView dateAdded, addressS;
-    Button showMap, addAddress;
+    Button showMap, distance;
     CheckBox hasVisited;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         hasVisited = findViewById(R.id.visitedBox);
         //addAddress = findViewById(R.id.addAddress);
         addressS = findViewById(R.id.addressSelected);
+        distance = findViewById(R.id.showDistance);
 
         placesLV = findViewById(R.id.placesLV);
         placeModels = new ArrayList<>();
@@ -148,11 +149,12 @@ public class MainActivity extends AppCompatActivity {
                 // set item title
                 updateItem.setTitle("Update");
                 // set item title fontsize
-                updateItem.setTitleSize(16);
+                updateItem.setTitleSize(13);
                 // set item title font color
-                updateItem.setTitleColor(Color.WHITE);
+                updateItem.setTitleColor(Color.BLACK);
                 updateItem.setBackground(new ColorDrawable(Color.rgb(06,
                         89, 255)));
+                updateItem.setIcon(R.drawable.ic_update);
                 // add to menu
                 menu.addMenuItem(updateItem);
 
@@ -163,7 +165,12 @@ public class MainActivity extends AppCompatActivity {
                 deleteItem.setBackground(new ColorDrawable(Color.rgb(0xF9,
                         0x3F, 0x25)));
                 // set item width
-                deleteItem.setWidth(170);
+                deleteItem.setTitle("Delete");
+                // set item title fontsize
+                deleteItem.setTitleSize(13);
+                // set item title font color
+                deleteItem.setTitleColor(Color.BLACK);
+                deleteItem.setWidth(220);
                 // set a icon
                 deleteItem.setIcon(R.drawable.ic_delete);
                 // add to menu
@@ -194,6 +201,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         addressS.setText(selectedPlace.getName());
+
+        distance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),DistanceMapsActivity.class));
+            }
+        });
     }
 
     @Override

@@ -2,4 +2,5 @@
     <string name="app_name">FA_KarimElJazzar_C0826750_android</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="title_activity_update_maps">UpdateMapsActivity</string>
+    <string name="title_activity_distance_maps">DistanceMapsActivity</string>
 </resources>

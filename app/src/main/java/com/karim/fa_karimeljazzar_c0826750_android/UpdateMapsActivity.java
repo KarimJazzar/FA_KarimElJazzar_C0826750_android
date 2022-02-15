@@ -9,8 +9,9 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.karim.fa_karimeljazzar_c0826750_android.databinding.ActivityUpdateMapsBinding;
+
 
 import static com.karim.fa_karimeljazzar_c0826750_android.MainActivity.databaseHelper;
 import static com.karim.fa_karimeljazzar_c0826750_android.MainActivity.placeModels;
@@ -104,6 +105,7 @@ public class UpdateMapsActivity extends AppCompatActivity {
             @Override
             public void onMapReady(GoogleMap googleMap) {
                 mapView_onMapReady(googleMap);
+
                 googleMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
                     @Override
                     public void onMapLongClick(@NonNull LatLng latLng) {
@@ -381,11 +383,11 @@ public class UpdateMapsActivity extends AppCompatActivity {
 
 
                 LatLng placeLocation = new LatLng(selectedPlace.getLatitude(), selectedPlace.getLongitude());
-                MarkerOptions markerOptionsProduct = new MarkerOptions();
-                markerOptionsProduct.position(placeLocation);
-                markerOptionsProduct.title(selectedPlace.getName());
-                markerOptionsProduct.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
-                googleMap.addMarker(markerOptionsProduct);
+                MarkerOptions markerOptionsPlace = new MarkerOptions();
+                markerOptionsPlace.position(placeLocation);
+                markerOptionsPlace.title(selectedPlace.getName());
+                markerOptionsPlace.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+                googleMap.addMarker(markerOptionsPlace);
                 googleMap.moveCamera(CameraUpdateFactory.newLatLng(placeLocation));
 
 
